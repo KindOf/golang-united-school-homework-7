@@ -103,20 +103,17 @@ func TestNew(t *testing.T) {
 	}{
 		{
 			name: "wrong row len",
-			ms: `1 1 1
-				1 1`,
+			ms:   "1 1 1\n1 1",
 			want: nil,
 			err:  fmt.Errorf("Rows need to be the same length"),
 		}, {
 			name: "wrong matrix element type",
-			ms: `1 1 1
-				1 1 a`,
+			ms:   "1 1 1\n1 1 a",
 			want: nil,
 			err:  fmt.Errorf("strconv.Atoi: parsing \"a\": invalid syntax"),
 		}, {
 			name: "new matrix returned",
-			ms: `1 1 1
-				1 1 1`,
+			ms:   "1 1 1\n1 1 1",
 			want: &Matrix{rows: 2, cols: 3, data: []int{1, 1, 1, 1, 1, 1}},
 			err:  nil,
 		},
